@@ -34,7 +34,7 @@
 
     <change-notes><![CDATA[
         <ul>
-            <li>将对版本控制插件的依赖设计为可选依赖</li>
+            <li>remove deprecated and internal API usage</li>
         </ul>
       ]]>
     </change-notes>
