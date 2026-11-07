@@ -17,13 +17,13 @@
         The plugin functions are as follows (each item supports setting whether to execute or not):
         <ul>
             <li>every time after opening the project, automatically fetch all remote changes from all repositories once(supports git and svn, but relies on the corresponding version control plugins)</li>
-            <li>open the IDE and after entering the welcome screen, automatically check for updates of the IDE and plugins once(once a day)</li>
+            <li>after opening the IDE, automatically check for updates of the IDE and plugins once(once a day)</li>
         </ul>
         <br>
         插件功能如下（每项都支持设置是否执行）：
         <ul>
             <li>每次打开项目后，自动获取所有仓库远程变动一次（支持git和svn，需要依赖对应的版本控制插件）</li>
-            <li>打开IDE，进入欢迎界面后，自动检查IDE和插件的更新一次（一天一次）</li>
+            <li>打开IDE后，自动检查IDE和插件的更新一次（一天一次）</li>
         </ul>
         <br>
         plugin setting location: File | Settings | Tools | Auto Some
@@ -52,6 +52,8 @@
         <applicationService serviceImplementation="me.ct.group.setting.Setting"/>
         <applicationConfigurable parentId="tools" instance="me.ct.group.setting.SettingConfig"
                                  id="me.ct.group.setting.SettingConfig" displayName="Auto Some"/>
+        <!-- IDEA 2026.3 起欢迎界面是“欢迎界面项目”，需通过项目启动活动触发更新检查 -->
+        <postStartupActivity implementation="me.ct.group.activity.CheckUpdateActivity"/>
 
         <!--<notificationGroup id="AutoSome Notification Group" displayType="BALLOON" key="notify.group.name"/>-->
     </extensions>
