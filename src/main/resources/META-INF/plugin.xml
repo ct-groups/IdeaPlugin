@@ -34,7 +34,10 @@
 
     <change-notes><![CDATA[
         <ul>
-            <li>remove deprecated and internal API usage</li>
+            <li>IDEA 2026.3 support: automatically check IDE and plugin updates on startup regardless of the "Check for updates" setting; once a day without changing your settings</li>
+            <li>Fixed garbled Chinese text in build output</li>
+            <li>适配 IDEA 2026.3：打开 IDE 后自动检查 IDE 和插件更新，不受“自动检查更新”设置影响；一天一次，不修改用户设置</li>
+            <li>修复构建产物中文乱码</li>
         </ul>
       ]]>
     </change-notes>

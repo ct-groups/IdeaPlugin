@@ -1,3 +1,5 @@
+import java.io.File
+
 group = providers.gradleProperty("pluginGroup").get()
 version = providers.gradleProperty("pluginVersion").get()
 
@@ -54,8 +56,9 @@ intellijPlatform {
 
     signing {
         password = providers.environmentVariable("PRIVATE_KEY_PASSWORD")
-        privateKeyFile = providers.environmentVariable("PRIVATE_KEY_FILE").map { file(it) }
-        certificateChainFile = providers.environmentVariable("CERTIFICATE_CHAIN_FILE").map { file(it) }
+        // 用 File 构造器替代脚本里的 file()，避免配置缓存序列化脚本对象失败
+        privateKeyFile = providers.environmentVariable("PRIVATE_KEY_FILE").map { File(it) }
+        certificateChainFile = providers.environmentVariable("CERTIFICATE_CHAIN_FILE").map { File(it) }
     }
 
     publishing {
