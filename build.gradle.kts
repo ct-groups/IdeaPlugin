@@ -68,6 +68,11 @@ kotlin {
     jvmToolchain(17)
 }
 
+// 固定 Java 编译编码，避免依赖 Gradle 守护进程的默认编码（IDEA 下 UTF-8、命令行下 GBK）导致中文常量乱码
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
+}
+
 //use register() to register a task
 tasks.register("hello") {// 任务名为"hello"
     group = "custom"
